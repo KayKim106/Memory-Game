@@ -22,7 +22,8 @@ class App extends Component {
     	//if socre is less than 10, score + 1
     	if(this.state.score<10){
         	this.setState({score:this.state.score+1});
-            console.log(this.removeImages);
+            console.log()
+          
     		//find the clicked images's id and changed the clicked's status to true
     	}
     	else if(this.state.score>=10) {
@@ -31,28 +32,37 @@ class App extends Component {
 
     	}	    	
     }
-    imageid =id=>{
-        console.log(id);
-        this.setState({
-            images:this.state.images.filter( image=>image.id!==id)
-        })
+
+
+
+    removeimages = id=>{
+       
+             console.log(id);
+             this.state.clickedImages.push(id);
+             for(let i=0; i<this.state.clickedImages.length; i++){
+             console.log(this.state.clickedImages[i])
+             }
+
+                
         };
 
+     
+
     render() {
-      
+      console.log(this.state.images)
         return ( <Wrapper >
            		 <Navbar score={this.state.score} topscore={this.state.score} / >
          		 <Banner / >
-               
-
+                <h1 onClick={() =>{this.removeimages(2)}}>deleting</h1>
+                
             {
                 this.state.images.map(chracters => (
 	                 <Main image = { chracters.image } 
 	                       key = { chracters.id }
 	                       id={chracters.id}
 	                       click={this.imageclicked}
-                           onClicked={this.imageid}
-                          
+                           onRemove={this.removeimages}
+                           
 	            
                        />
                 ))

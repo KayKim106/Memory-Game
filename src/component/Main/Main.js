@@ -21,9 +21,9 @@ const style ={
 
 const Main=props=>(
 	
-		<div className="imagebox" style={style.display}>
-		<img src={props.image} alt={props.id} style={style.boxsize} onClick={props.click} />
-	
+		<div className="imagebox" style={style.display} >
+		<img src={props.image} alt={props.name} style={style.boxsize} onClick={()=>{props.onRemove(props.id)}} />
+		
 		</div>
 	
 	);

@@ -9,9 +9,10 @@ const style ={
 	},
 	display:{
 		display:"inline-block",
-		width:"200px",
-		marginTop:"20px",
-		cursor:"pointer"
+		width:"150px",
+		cursor:"pointer",
+		margin:"20px 50px 0 0",
+		
 	
 	}
 
@@ -20,7 +21,7 @@ const style ={
 }
 
 const Main=props=>(
-	
+		
 		<div className="imagebox" style={style.display} >
 		<img src={props.image} alt={props.name} style={style.boxsize} onClick={()=>{props.onRemove(props.id)}} />
 		
